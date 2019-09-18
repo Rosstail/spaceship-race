@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5dd7f140-63a8-4a0d-be5a-21107e67d8d6" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1QLLxU96UdryiFYLE103d5EhkqH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2816092" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="fr.rphstudio.codingdojo.students" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Compile Coding Dojo PlugIn UNIX">
+    <configuration name="Compile Coding Dojo PlugIn UNIX" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="fr.rphstudio.codingdojo.launcher.MainLauncher" />
+      <module name="Student1" />
+      <option name="PROGRAM_PARAMETERS" value="-window" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=lib -cp ./*:students/*" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/resources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="clean install" />
+      </method>
+    </configuration>
+    <configuration name="Compile Coding Dojo PlugIn WIN32" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="fr.rphstudio.codingdojo.launcher.MainLauncher" />
+      <module name="Student1" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=lib -cp ./*;students/*" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/resources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="clean install" />
+      </method>
+    </configuration>
+    <configuration name="Download" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="fr.rphstudio.codingdojo.launcher.MainLauncher" />
+      <module name="Student1" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=lib -cp ./*:students/*" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/resources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="clean install" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="antrun:run@download" />
+      </method>
+    </configuration>
+    <configuration name="Upload" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="fr.rphstudio.codingdojo.launcher.MainLauncher" />
+      <module name="Student1" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=lib -cp ./*:students/*" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/resources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="clean install" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="antrun:run@upload" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Compile Coding Dojo PlugIn WIN32" />
+      <item itemvalue="Application.Compile Coding Dojo PlugIn UNIX" />
+      <item itemvalue="Application.Upload" />
+      <item itemvalue="Application.Download" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5dd7f140-63a8-4a0d-be5a-21107e67d8d6" name="Default" comment="" />
+      <created>1559740792523</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1559740792523</updated>
+      <workItem from="1567545177462" duration="596000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="hg4idea.settings">
+    <option name="CHECK_INCOMING_OUTGOING" value="true" />
+    <option name="RECENT_HG_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+</project>

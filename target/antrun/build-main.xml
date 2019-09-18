@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <copy todir="/Users/anthonybac/Downloads/Romuald78-cd2k19_studentplugin-afa3a991f2c2/resources/students">
+    <fileset dir="target">
+      <include name="**/Student9*.jar"/>
+    </fileset>
+  </copy>
+</target>
+</project>
