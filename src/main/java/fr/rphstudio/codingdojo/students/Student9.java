@@ -20,30 +20,30 @@ public class Student9 extends PodPlugIn {
     //-------------------------------------------------------
     // DECLARE YOUR OWN VARIABLES AND FUNCTIONS HERE
 
-    float getNxtCheckPointDistanceX()
+    float getNxtCheckPointDistanceX(int cp)
     {
         float pdx;
 
-        pdx = getNextCheckPointX() - getShipPositionX();
+        pdx = getCheckPointPositionX(cp) - getShipPositionX();
         return pdx;
     }
 
-    float getNxtCheckPointDistanceY()
+    float getNxtCheckPointDistanceY(int cp)
     {
         float pdy;
 
-        pdy = getNextCheckPointY() - getShipPositionY();
+        pdy = getCheckPointPositionY(cp) - getShipPositionY();
         return pdy;
     }
 
-    float getAngletoNextCheckPoint()
+    float getAngletoNextCheckPoint(int cp)
     {
         float asqcp;
         float A;
         float O;
 
-        A = getNextCheckPointX() - getShipPositionX();
-        O = getNextCheckPointY() - getShipPositionY();
+        A = getCheckPointPositionX(cp) - getShipPositionX();
+        O = getCheckPointPositionY(cp) - getShipPositionY();
         asqcp = (180 * atan2(O, A) / PI);
 
         return asqcp;
@@ -58,15 +58,18 @@ public class Student9 extends PodPlugIn {
         //-------------------------------------------------------
         // WRITE YOUR OWN CODE HERE
 
+        int cp;
+
+        cp = getNbValidCheckPoints() + 1;
         setPlayerName("9 - 4x4");
         selectShip(9);
         setPlayerColor(255,0,255,255);
 
         //turnTowardPosition(getNextCheckPointX(), getNextCheckPointY());
         incSpeed(1f);
-        turnToAngle(getAngletoNextCheckPoint());
-        if (getNxtCheckPointDistanceX() > 200 && getNxtCheckPointDistanceY() > 200)
-            if (getAngletoNextCheckPoint() < 5 && getAngletoNextCheckPoint() > -5)
+        turnToAngle(getAngletoNextCheckPoint(cp));
+        if (getNxtCheckPointDistanceX(cp) > 20 && getNxtCheckPointDistanceY(cp) > 20)
+            if (getAngletoNextCheckPoint(cp) < 50)
                 useBoost();
         // END OF CODE AREA
         //-------------------------------------------------------
