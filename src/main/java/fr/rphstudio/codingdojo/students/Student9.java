@@ -20,30 +20,26 @@ public class Student9 extends PodPlugIn {
     //-------------------------------------------------------
     // DECLARE YOUR OWN VARIABLES AND FUNCTIONS HERE
 
-    float getNxtCheckPointDistanceX(int cp)
+    float getNxtCheckPointDistance()
     {
         float pdx;
-
-        pdx = getCheckPointPositionX(cp) - getShipPositionX();
-        return pdx;
-    }
-
-    float getNxtCheckPointDistanceY(int cp)
-    {
         float pdy;
 
-        pdy = getCheckPointPositionY(cp) - getShipPositionY();
+        pdx = getCheckPointPositionX(getNextCheckPointIndex()) - getShipPositionX();
+        pdy = getCheckPointPositionY(getNextCheckPointIndex()) - getShipPositionY();
+        if (pdx < pdy)
+            return pdx;
         return pdy;
     }
 
-    float getAngletoNextCheckPoint(int cp)
+    float getAngletoNextCheckPoint()
     {
         float asqcp;
         float A;
         float O;
 
-        A = getCheckPointPositionX(cp) - getShipPositionX();
-        O = getCheckPointPositionY(cp) - getShipPositionY();
+        A = getCheckPointPositionX(getNextCheckPointIndex()) - getShipPositionX();
+        O = getCheckPointPositionY(getNextCheckPointIndex()) - getShipPositionY();
         asqcp = (180 * atan2(O, A) / PI);
 
         return asqcp;
@@ -58,18 +54,14 @@ public class Student9 extends PodPlugIn {
         //-------------------------------------------------------
         // WRITE YOUR OWN CODE HERE
 
-        int cp;
-
-        cp = getNbValidCheckPoints() + 1;
         setPlayerName("9 - 4x4");
         selectShip(9);
         setPlayerColor(255,0,255,255);
 
-        //turnTowardPosition(getNextCheckPointX(), getNextCheckPointY());
         incSpeed(1f);
-        turnToAngle(getAngletoNextCheckPoint(cp));
-        if (getNxtCheckPointDistanceX(cp) > 20 && getNxtCheckPointDistanceY(cp) > 20)
-            if (getAngletoNextCheckPoint(cp) < 50)
+        turnToAngle(getAngletoNextCheckPoint());
+        if (getNxtCheckPointDistance() > 10)
+            //if (getAngletoNextCheckPoint() - getShipAngle() < 50)
                 useBoost();
         // END OF CODE AREA
         //-------------------------------------------------------
