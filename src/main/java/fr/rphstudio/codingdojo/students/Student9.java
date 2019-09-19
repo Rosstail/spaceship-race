@@ -24,9 +24,7 @@ public class Student9 extends PodPlugIn {
     {
         float pdx;
 
-        pdx = getShipPositionX() - getNextCheckPointX();
-        if (pdx < 0)
-            pdx = -pdx;
+        pdx = getNextCheckPointX() - getShipPositionX();
         return pdx;
     }
 
@@ -34,18 +32,21 @@ public class Student9 extends PodPlugIn {
     {
         float pdy;
 
-        pdy = getShipPositionY() - getNextCheckPointY();
-        if (pdy < 0)
-            pdy = -pdy;
+        pdy = getNextCheckPointY() - getShipPositionY();
         return pdy;
     }
 
-    float getAngletoNextChectPoint()
+    float getAngletoNextCheckPoint()
     {
-        float fangle;
-        fangle = getShipAngle();
+        float asqcp;
+        float A;
+        float O;
 
-        return fangle;
+        A = getNextCheckPointX() - getShipPositionX();
+        O = getNextCheckPointY() - getShipPositionY();
+        asqcp = (180 * atan2(O, A) / PI);
+
+        return asqcp;
     }
     
     // END OF VARIABLES/FUNCTIONS AREA
@@ -56,15 +57,17 @@ public class Student9 extends PodPlugIn {
     {   
         //-------------------------------------------------------
         // WRITE YOUR OWN CODE HERE
-        
-        setPlayerName("Groupe 9");
+
+        setPlayerName("9 - 4x4");
         selectShip(9);
         setPlayerColor(255,0,255,255);
 
-        turnTowardPosition(getNextCheckPointX(), getNextCheckPointY());
+        //turnTowardPosition(getNextCheckPointX(), getNextCheckPointY());
         incSpeed(1f);
-        if  (getNxtCheckPointDistanceX() < 50 && getNxtCheckPointDistanceY() < 50)
-            useBoost();
+        turnToAngle(getAngletoNextCheckPoint());
+        if (getNxtCheckPointDistanceX() > 200 && getNxtCheckPointDistanceY() > 200)
+            if (getAngletoNextCheckPoint() < 5 && getAngletoNextCheckPoint() > -5)
+                useBoost();
         // END OF CODE AREA
         //-------------------------------------------------------
     }
