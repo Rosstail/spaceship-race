@@ -20,7 +20,33 @@ public class Student9 extends PodPlugIn {
     //-------------------------------------------------------
     // DECLARE YOUR OWN VARIABLES AND FUNCTIONS HERE
 
-    
+    float getNxtCheckPointDistanceX()
+    {
+        float pdx;
+
+        pdx = getShipPositionX() - getNextCheckPointX();
+        if (pdx < 0)
+            pdx = -pdx;
+        return pdx;
+    }
+
+    float getNxtCheckPointDistanceY()
+    {
+        float pdy;
+
+        pdy = getShipPositionY() - getNextCheckPointY();
+        if (pdy < 0)
+            pdy = -pdy;
+        return pdy;
+    }
+
+    float getAngletoNextChectPoint()
+    {
+        float fangle;
+        fangle = getShipAngle();
+
+        return fangle;
+    }
     
     // END OF VARIABLES/FUNCTIONS AREA
     //-------------------------------------------------------
@@ -36,9 +62,9 @@ public class Student9 extends PodPlugIn {
         setPlayerColor(255,0,255,255);
 
         turnTowardPosition(getNextCheckPointX(), getNextCheckPointY());
-        //turnToAngle();
         incSpeed(1f);
-
+        if  (getNxtCheckPointDistanceX() < 50 && getNxtCheckPointDistanceY() < 50)
+            useBoost();
         // END OF CODE AREA
         //-------------------------------------------------------
     }
