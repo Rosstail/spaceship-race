@@ -9,19 +9,19 @@ import fr.rphstudio.codingdojo.game.Pod;
 import fr.rphstudio.codingdojo.game.PodPlugIn;
 
 /**
- *
  * @author Romuald GRIGNON
  */
 public class Student9 extends PodPlugIn {
-    public Student9(Pod p){
+    public Student9(Pod p) {
         super(p);
     }
 
     //-------------------------------------------------------
     // DECLARE YOUR OWN VARIABLES AND FUNCTIONS HERE
 
-    float getNxtCheckPointDistance()
-    {
+    float speed = 1f;
+
+    float getNxtCheckPointDistance() {
         float O;
         float A;
         float H;
@@ -35,8 +35,21 @@ public class Student9 extends PodPlugIn {
         return H;
     }
 
-    float getAngletoNextCheckPoint()
-    {
+    float getSndCheckPointDistance() {
+        float O;
+        float A;
+        float H;
+
+        A = getSecondCheckPointX();
+        O = getSecondCheckPointY();
+        A = A * A;
+        O = O * O;
+        H = A + O;
+        H = sqrt(H);
+        return H;
+    }
+
+    float getAngletoNextCheckPoint() {
         float asqcp;
         float A;
         float O;
@@ -48,26 +61,58 @@ public class Student9 extends PodPlugIn {
         return asqcp;
     }
 
+    float getAngletoSndCheckPoint() {
+        float asqcp;
+        float A;
+        float O;
+
+        A = getCheckPointPositionX(getNextCheckPointIndex()) - getShipPositionX();
+        O = getCheckPointPositionY(getNextCheckPointIndex()) - getShipPositionY();
+        asqcp = (180 * atan2(O, A) / PI);
+
+        return asqcp;
+    }
+
+    boolean isDirectionGood(int a) {
+        if (getAngletoNextCheckPoint() <= getShipAngle() + a)
+            if (getAngletoNextCheckPoint() >= getShipAngle() - a)
+                return true;
+        return false;
+    }
+
+    void autopilot()
+    {
+        if (getNxtCheckPointDistance() < 3.8f && getShipSpeed() > 1f) {
+            speed = -0.5f;
+            turnToAngle(getAngletoSndCheckPoint());
+        }
+        else if (getShipSpeed() < 0.5f && isDirectionGood(10)) {
+            speed = 0.4f;
+            turnToAngle(getAngletoNextCheckPoint());
+        }
+        else {
+            speed = 1.0f;
+            turnToAngle(getAngletoNextCheckPoint());
+        }
+        incSpeed(speed);
+        System.out.println("VITESSE = " + speed);
+        if (getNxtCheckPointDistance() > 10 && isDirectionGood(1))
+            useBoost();
+    }
+
     // END OF VARIABLES/FUNCTIONS AREA
     //-------------------------------------------------------
 
     @Override
-    public void process(int delta)
-    {
+    public void process(int delta) {
         //-------------------------------------------------------
         // WRITE YOUR OWN CODE HERE
 
         setPlayerName("9 - 4x4");
         selectShip(9);
-        setPlayerColor(255,0,255,255);
+        setPlayerColor(255, 0, 255, 255);
 
-        turnToAngle(getAngletoNextCheckPoint());
-        if (getNxtCheckPointDistance() > 6)
-            incSpeed(1.0f);
-        else
-            incSpeed(0.3f);
-        if (getNxtCheckPointDistance() > 9 && getAngletoNextCheckPoint() <= getShipAngle() + 1 && getAngletoNextCheckPoint() >= getShipAngle() - 1)
-            useBoost();
+        autopilot();
         // END OF CODE AREA
         //-------------------------------------------------------
     }
