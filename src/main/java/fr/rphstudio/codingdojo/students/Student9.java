@@ -16,20 +16,23 @@ public class Student9 extends PodPlugIn {
     public Student9(Pod p){
         super(p);
     }
-    
+
     //-------------------------------------------------------
     // DECLARE YOUR OWN VARIABLES AND FUNCTIONS HERE
 
     float getNxtCheckPointDistance()
     {
-        float pdx;
-        float pdy;
+        float O;
+        float A;
+        float H;
 
-        pdx = getCheckPointPositionX(getNextCheckPointIndex()) - getShipPositionX();
-        pdy = getCheckPointPositionY(getNextCheckPointIndex()) - getShipPositionY();
-        if (pdx < pdy)
-            return pdx;
-        return pdy;
+        A = getCheckPointPositionX(getNextCheckPointIndex()) - getShipPositionX();
+        O = getCheckPointPositionY(getNextCheckPointIndex()) - getShipPositionY();
+        A = A * A;
+        O = O * O;
+        H = A + O;
+        H = sqrt(H);
+        return H;
     }
 
     float getAngletoNextCheckPoint()
@@ -44,13 +47,13 @@ public class Student9 extends PodPlugIn {
 
         return asqcp;
     }
-    
+
     // END OF VARIABLES/FUNCTIONS AREA
     //-------------------------------------------------------
 
     @Override
     public void process(int delta)
-    {   
+    {
         //-------------------------------------------------------
         // WRITE YOUR OWN CODE HERE
 
@@ -58,11 +61,13 @@ public class Student9 extends PodPlugIn {
         selectShip(9);
         setPlayerColor(255,0,255,255);
 
-        incSpeed(1f);
         turnToAngle(getAngletoNextCheckPoint());
-        if (getNxtCheckPointDistance() > 10)
-            //if (getAngletoNextCheckPoint() - getShipAngle() < 50)
-                useBoost();
+        if (getNxtCheckPointDistance() > 6)
+            incSpeed(1.0f);
+        else
+            incSpeed(0.3f);
+        if (getNxtCheckPointDistance() > 9 && getAngletoNextCheckPoint() <= getShipAngle() + 1 && getAngletoNextCheckPoint() >= getShipAngle() - 1)
+            useBoost();
         // END OF CODE AREA
         //-------------------------------------------------------
     }
